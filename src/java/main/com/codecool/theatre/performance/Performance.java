@@ -24,7 +24,9 @@ public abstract class Performance<T extends Actor> {
         this.numberOfSoldTickets = 0;
     }
 
-    abstract public void addActorToList(T actor);
+    public void addActorToList(T actor) {
+        listOfActors.add(actor);
+    }
 
     public boolean buyTicket() {
         if (numberOfSoldTickets < MAX_GUEST_NUMBER) {

@@ -20,7 +20,9 @@ public class Theatre {
     }
 
     public void buyNewTicketForPerformance(Performance<? extends Actor> performance) {
-        if (performance.buyTicket()) currentProfit += performance.getTicketPrice();
+        if (performance.buyTicket()) {
+            currentProfit += performance.getTicketPrice();
+        }
     }
 
     public List<Performance<? extends Actor>> getPerformanceList() {

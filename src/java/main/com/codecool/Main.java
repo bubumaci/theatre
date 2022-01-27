@@ -15,8 +15,8 @@ public class Main {
 
     public static void main(String[] args) {
         Theatre theatre = new Theatre();
-        Opera<Singer> opera = createOpera(theatre);
-        Ballet<Dancer> ballet = createBallet(theatre);
+        Opera opera = createOpera(theatre);
+        Ballet ballet = createBallet(theatre);
         System.out.println(theatre);
 
         simulateTicketSelling(theatre, opera, ballet);
@@ -29,21 +29,21 @@ public class Main {
         System.out.println("Current Profit: " + theatre.getCurrentProfit());
     }
 
-    private static Ballet<Dancer> createBallet(Theatre theatre) {
-        Ballet<Dancer> ballet = new Ballet<>("Diótörő", LocalDateTime.now(), 6600L, 200);
+    private static Ballet createBallet(Theatre theatre) {
+        Ballet ballet = new Ballet("Diótörő", LocalDateTime.now(), 6600L, 200);
         ballet.addActorToList(new Dancer("Anna"));
         theatre.addNewPerformance(ballet);
         return ballet;
     }
 
-    private static Opera<Singer> createOpera(Theatre theatre) {
-        Opera<Singer> opera = new Opera<>("Varázsfuvola", LocalDateTime.now(), 5900L, 130);
+    private static Opera createOpera(Theatre theatre) {
+        Opera opera = new Opera("Varázsfuvola", LocalDateTime.now(), 5900L, 130);
         opera.addActorToList(new Singer("Mirabel"));
         theatre.addNewPerformance(opera);
         return opera;
     }
 
-    private static void simulateTicketSelling(Theatre theatre, Opera<Singer> opera, Ballet<Dancer> ballet) {
+    private static void simulateTicketSelling(Theatre theatre, Opera opera, Ballet ballet) {
         Random random = new Random();
         final int BOUND = 200;
         for (int i = 0; i < random.nextInt(BOUND); i++) {
